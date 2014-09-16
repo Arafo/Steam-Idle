@@ -51,12 +51,14 @@ namespace steam_idle_gui
             char[] d = { '/' }; // Delimitador
 
             HtmlAgilityPack.HtmlDocument doc = getHtmlDoc("/badges/");
-            dropCount = dropCards(doc);
+            //dropCount = dropCards(doc);
 
             // Drops restantes de cada juego extraido del codigo HTML
             dropCount = dropCards(doc);
             List<int> blacklist = getBlacklist();
+
             HtmlNodeCollection n = doc.DocumentNode.SelectNodes("//div[@class='badge_title']");
+            if (n == null) return games;
             foreach (HtmlNode node in doc.DocumentNode.SelectNodes("//a[@class='badge_row_overlay']"))
             {
                 if (!n[y].InnerText.Contains("Foil"))
@@ -204,8 +206,16 @@ namespace steam_idle_gui
         public HtmlAgilityPack.HtmlDocument getHtmlDoc(String s)
         {
             string htmlCode = ""; // Codigo HTML
-            // URL a la cuenta de Steam
-            string myURL = "http://steamcommunity.com/profiles/" + steamLogin.Substring(0, 17);
+            string myURL = "http://steamcommunity.com/profiles/"; // URL a la cuenta de Steam
+            try
+            {
+                 myURL =  myURL + steamLogin.Substring(0, 17);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                WriteOnConsole(Resources.Resources.steamLoginError);
+            }
+
             // Cliente con las cookies necesarias para obtener la información de las cartas
             CookieAwareWebClient client = generateCookies();
             // String que contiene el codigo HTML de la pagina correspondiente a las cartas
@@ -323,7 +333,15 @@ namespace steam_idle_gui
         public int getDropsAppID(string appID)
         {
             int drops = 1;
-            string myURL = "http://steamcommunity.com/profiles/" + steamLogin.Substring(0, 17);
+            string myURL = "http://steamcommunity.com/profiles/";
+            try
+            {
+                myURL = myURL + steamLogin.Substring(0, 17);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                WriteOnConsole(Resources.Resources.steamLoginError);
+            }
             CookieAwareWebClient client = generateCookies();
             string htmlCode = client.DownloadString(myURL + "/gamecards/" + appID + "/");
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
@@ -361,15 +379,17 @@ namespace steam_idle_gui
         }
 
         // Leer el archivo 'settings.txt' y rellena las cookies con su contenido
-        public string[] getSettings()
+        public string[] getSettings(bool writeInfo)
         {
             string[] lines = null;
             try
             {
                 lines = System.IO.File.ReadAllLines("config/settings.txt");
-                sessionid += lines[0].Split('"')[1];
-                steamLogin += lines[1].Split('"')[1];
-                steamparental += lines[2].Split('"')[1];
+                sessionid = lines[0].Split('"')[1];
+                if (sessionid == "" && writeInfo) WriteOnConsole(Resources.Resources.Nosessionid);
+                steamLogin = lines[1].Split('"')[1];
+                if (steamLogin == "" && writeInfo) WriteOnConsole(Resources.Resources.NosteamLogin);
+                steamparental = lines[2].Split('"')[1];
             }
             catch (Exception)
             {

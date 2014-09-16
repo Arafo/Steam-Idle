@@ -24,7 +24,10 @@ namespace steam_idle_gui
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            File.WriteAllText("config/settings.txt", "sessionid = \"" + this.textBox3.Text + "\"" + Environment.NewLine + "steamLogin = \"" + this.textBox1.Text + "\"" + Environment.NewLine + "steamparental = \"" + this.textBox2.Text + "\"\n");
+            File.WriteAllText("config/settings.txt", 
+                "sessionid = \"" + this.textBox1.Text + "\"" + Environment.NewLine + 
+                "steamLogin = \"" + this.textBox2.Text + "\"" + Environment.NewLine + 
+                "steamparental = \"" + this.textBox3.Text + "\"\n");
             this.SaveButton.Enabled = false;
         }
 

@@ -50,7 +50,7 @@ namespace steam_idle_gui
         private void Form1_Load(object sender, EventArgs e)
         {
             Console.SetOut(new TextBoxWriter(textBox1));
-            this.settings = this.t1.getSettings();
+            this.settings = this.t1.getSettings(true);
             blacklist = new EditBlacklist(this);
             automode = new AutoMode(this);
             automode.getOrderBox().SelectedIndex = steam_idle_gui.Properties.Settings.Default.OrderIndex; 
@@ -290,6 +290,7 @@ namespace steam_idle_gui
 
         private void UpdateButtonWorker_DoWork(object sender, DoWorkEventArgs e)
         {
+            checkSettings();
             e.Result = t1.getGames(true, automode.getValueCheckBox(), "UPDATE", false);
             games = (List<Games>)e.Result;
         }
@@ -297,7 +298,7 @@ namespace steam_idle_gui
         private void UpdateButtonWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             List<Games> n = (List<Games>)e.Result;
-            if (n != null)
+            if (n != null && n.Count > 0)
             {
                 n = n.OrderBy(o => o.Game).ToList();
                 BindingListView<Games> view = new BindingListView<Games>(n);
@@ -318,10 +319,10 @@ namespace steam_idle_gui
                     if (blacklist != null)
                         blacklist.setGamesComboBox();
                 }
-                Console.WriteLine(n.Count + steam_idle_gui.Resources.Resources.GamesFound);
                 //if (dataGridView1.RowCount > 0)
                     //GameHeaderBox.Load(t1.getAppHeader((string)dataGridView1[1, dataGridView1.CurrentRow.Index].Value));
             }
+            Console.WriteLine(n.Count + steam_idle_gui.Resources.Resources.GamesFound);
         }
 
         private void IdleGameWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -355,6 +356,7 @@ namespace steam_idle_gui
             List<Object> arguments = (List<Object>)e.Argument;
             AutoModeWorker.DoWork += IdleGameWorker_DoWork;
             AutoModeWorker.WorkerSupportsCancellation = true;
+            checkSettings();
             if ((bool)arguments[0]) // Auto Mode
             {
                 List<Games> autoGames = t1.getGames((bool)arguments[1], (bool)arguments[2], "AUTO", blacklist.getInvertBlacklist());
@@ -536,7 +538,7 @@ namespace steam_idle_gui
 
         public string[] getSettings()
         {
-            settings = t1.getSettings();
+            settings = t1.getSettings(false);
             return settings;
         }
 
@@ -561,6 +563,15 @@ namespace steam_idle_gui
         {
             return info;
         }
+
+        private void checkSettings()
+        {
+            //string sid = settings[0].Split(new char[] { '"' })[1];
+            //string slogin = settings[1].Split(new char[] { '"' })[1];
+            //if (sid == "" || slogin == "")
+                this.settings = t1.getSettings(true);
+        }
+
         /////////////////////////////////////////////////////////////////
         // INTERACTUAR CON LA UI DESDE UN BACKGROUNDWORKER
         /////////////////////////////////////////////////////////////////

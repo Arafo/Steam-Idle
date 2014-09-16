@@ -154,6 +154,12 @@
   <data name="AutoModeGroupBox.Text" xml:space="preserve">
     <value>Modo Automático</value>
   </data>
+  <data name="LogCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 17</value>
+  </data>
+  <data name="LogCheckBox.Text" xml:space="preserve">
+    <value>Registrar salida en un fichero</value>
+  </data>
   <data name="MinimizeCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 17</value>
   </data>

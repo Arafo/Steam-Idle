@@ -159,6 +159,12 @@
   <data name="NoGameSelect" xml:space="preserve">
     <value>No se ha seleccionado ningún juego</value>
   </data>
+  <data name="Nosessionid" xml:space="preserve">
+    <value>Cookie sessionid no configurada</value>
+  </data>
+  <data name="NosteamLogin" xml:space="preserve">
+    <value>Cookie steamLogin no configurada</value>
+  </data>
   <data name="NotInGame" xml:space="preserve">
     <value>Not In-Game</value>
   </data>
@@ -173,6 +179,9 @@
   </data>
   <data name="StartingGame" xml:space="preserve">
     <value>Iniciando {0} para obtener sus cromos</value>
+  </data>
+  <data name="steamLoginError" xml:space="preserve">
+    <value>Cookie steamLogin mal configurada</value>
   </data>
   <data name="SuccessGame" xml:space="preserve">
     <value>Todos los cromos correctamente obtenidos para </value>

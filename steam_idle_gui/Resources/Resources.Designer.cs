@@ -187,6 +187,24 @@ namespace steam_idle_gui.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No sessionid set.
+        /// </summary>
+        internal static string Nosessionid {
+            get {
+                return ResourceManager.GetString("Nosessionid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No steamLogin set.
+        /// </summary>
+        internal static string NosteamLogin {
+            get {
+                return ResourceManager.GetString("NosteamLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Not In-Game.
         /// </summary>
         internal static string NotInGame {
@@ -228,6 +246,15 @@ namespace steam_idle_gui.Resources {
         internal static string StartingGame {
             get {
                 return ResourceManager.GetString("StartingGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No steamLogin set.
+        /// </summary>
+        internal static string steamLoginError {
+            get {
+                return ResourceManager.GetString("steamLoginError", resourceCulture);
             }
         }
         

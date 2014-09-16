@@ -159,6 +159,12 @@
   <data name="NoGameSelect" xml:space="preserve">
     <value>No game selected</value>
   </data>
+  <data name="Nosessionid" xml:space="preserve">
+    <value>No sessionid set</value>
+  </data>
+  <data name="NosteamLogin" xml:space="preserve">
+    <value>No steamLogin set</value>
+  </data>
   <data name="NotInGame" xml:space="preserve">
     <value>Not In-Game</value>
   </data>
@@ -173,6 +179,9 @@
   </data>
   <data name="StartingGame" xml:space="preserve">
     <value>Starting game {0} to idle cards</value>
+  </data>
+  <data name="steamLoginError" xml:space="preserve">
+    <value>No steamLogin set</value>
   </data>
   <data name="SuccessGame" xml:space="preserve">
     <value>Successfully completed idling cards for </value>

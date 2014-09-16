@@ -35,10 +35,10 @@
             this.OrderLabel = new System.Windows.Forms.Label();
             this.OrderBox = new System.Windows.Forms.ComboBox();
             this.GeneralGroupBox = new System.Windows.Forms.GroupBox();
+            this.LogCheckBox = new System.Windows.Forms.CheckBox();
             this.MinimizeCheckBox = new System.Windows.Forms.CheckBox();
             this.SoundCheckBox = new System.Windows.Forms.CheckBox();
             this.HideCheckBox = new System.Windows.Forms.CheckBox();
-            this.LogCheckBox = new System.Windows.Forms.CheckBox();
             this.UpdateGroupBox.SuspendLayout();
             this.AutoModeGroupBox.SuspendLayout();
             this.GeneralGroupBox.SuspendLayout();
@@ -46,8 +46,8 @@
             // 
             // UpdateGroupBox
             // 
-            this.UpdateGroupBox.Controls.Add(this.ValueCheckBox);
             resources.ApplyResources(this.UpdateGroupBox, "UpdateGroupBox");
+            this.UpdateGroupBox.Controls.Add(this.ValueCheckBox);
             this.UpdateGroupBox.Name = "UpdateGroupBox";
             this.UpdateGroupBox.TabStop = false;
             // 
@@ -59,9 +59,9 @@
             // 
             // AutoModeGroupBox
             // 
+            resources.ApplyResources(this.AutoModeGroupBox, "AutoModeGroupBox");
             this.AutoModeGroupBox.Controls.Add(this.OrderLabel);
             this.AutoModeGroupBox.Controls.Add(this.OrderBox);
-            resources.ApplyResources(this.AutoModeGroupBox, "AutoModeGroupBox");
             this.AutoModeGroupBox.Name = "AutoModeGroupBox";
             this.AutoModeGroupBox.TabStop = false;
             // 
@@ -72,8 +72,8 @@
             // 
             // OrderBox
             // 
-            this.OrderBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.OrderBox, "OrderBox");
+            this.OrderBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.OrderBox.Items.AddRange(new object[] {
             resources.GetString("OrderBox.Items"),
             resources.GetString("OrderBox.Items1"),
@@ -85,13 +85,19 @@
             // 
             // GeneralGroupBox
             // 
+            resources.ApplyResources(this.GeneralGroupBox, "GeneralGroupBox");
             this.GeneralGroupBox.Controls.Add(this.LogCheckBox);
             this.GeneralGroupBox.Controls.Add(this.MinimizeCheckBox);
             this.GeneralGroupBox.Controls.Add(this.SoundCheckBox);
             this.GeneralGroupBox.Controls.Add(this.HideCheckBox);
-            resources.ApplyResources(this.GeneralGroupBox, "GeneralGroupBox");
             this.GeneralGroupBox.Name = "GeneralGroupBox";
             this.GeneralGroupBox.TabStop = false;
+            // 
+            // LogCheckBox
+            // 
+            resources.ApplyResources(this.LogCheckBox, "LogCheckBox");
+            this.LogCheckBox.Name = "LogCheckBox";
+            this.LogCheckBox.UseVisualStyleBackColor = true;
             // 
             // MinimizeCheckBox
             // 
@@ -110,12 +116,6 @@
             resources.ApplyResources(this.HideCheckBox, "HideCheckBox");
             this.HideCheckBox.Name = "HideCheckBox";
             this.HideCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // LogCheckBox
-            // 
-            resources.ApplyResources(this.LogCheckBox, "LogCheckBox");
-            this.LogCheckBox.Name = "LogCheckBox";
-            this.LogCheckBox.UseVisualStyleBackColor = true;
             // 
             // AutoMode
             // 
