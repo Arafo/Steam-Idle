@@ -117,88 +117,85 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;WhilelistCheckBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 221</value>
-  </data>
-  <data name="AddGameButton.Text" xml:space="preserve">
-    <value>Add Game</value>
-  </data>
-  <data name="&gt;&gt;GamesComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;InfoLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>EditBlacklist</value>
-  </data>
-  <data name="&gt;&gt;WhilelistCheckBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="InfoLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 180</value>
-  </data>
-  <data name="GetGamesButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="&gt;&gt;InfoLabel.Name" xml:space="preserve">
-    <value>InfoLabel</value>
-  </data>
-  <data name="BlacklistRichTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>377, 144</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>379, 145</value>
-  </data>
-  <data name="BlacklistRichTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;AddGameButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;SaveButton.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;WhilelistCheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BlacklistRichTextBox.Name" xml:space="preserve">
-    <value>BlacklistRichTextBox</value>
-  </data>
-  <data name="WhilelistCheckBox.Text" xml:space="preserve">
-    <value>Invert Blacklist (Whitelist)</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ClearButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;GetGamesButton.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;BlacklistRichTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="WhilelistCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 17</value>
-  </data>
   <data name="GamesComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="&gt;&gt;BlacklistRichTextBox.ZOrder" xml:space="preserve">
+  <data name="GamesComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 21</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="GamesComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="&gt;&gt;GamesComboBox.Name" xml:space="preserve">
     <value>GamesComboBox</value>
+  </data>
+  <data name="&gt;&gt;GamesComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GamesComboBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GamesComboBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="AddGameButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>226, 3</value>
+  </data>
+  <data name="AddGameButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="AddGameButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="AddGameButton.Text" xml:space="preserve">
+    <value>Add Game</value>
+  </data>
+  <data name="&gt;&gt;AddGameButton.Name" xml:space="preserve">
+    <value>AddGameButton</value>
+  </data>
+  <data name="&gt;&gt;AddGameButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AddGameButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;AddGameButton.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="GetGamesButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>307, 3</value>
+  </data>
+  <data name="GetGamesButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="GetGamesButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="GetGamesButton.Text" xml:space="preserve">
+    <value> Get Games</value>
+  </data>
+  <data name="&gt;&gt;GetGamesButton.Name" xml:space="preserve">
+    <value>GetGamesButton</value>
+  </data>
+  <data name="&gt;&gt;GetGamesButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GetGamesButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GetGamesButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="SaveButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>226, 195</value>
+  </data>
+  <data name="SaveButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="SaveButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="SaveButton.Text" xml:space="preserve">
     <value>Save</value>
@@ -206,148 +203,178 @@
   <data name="&gt;&gt;SaveButton.Name" xml:space="preserve">
     <value>SaveButton</value>
   </data>
-  <data name="GetGamesButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;GetGamesButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="InfoLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="SaveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>226, 195</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="BlacklistRichTextBox.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="GetGamesButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>307, 3</value>
-  </data>
-  <data name="AddGameButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="&gt;&gt;BlacklistRichTextBox.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;GamesComboBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;InfoLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="AddGameButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;GetGamesButton.Name" xml:space="preserve">
-    <value>GetGamesButton</value>
-  </data>
-  <data name="&gt;&gt;AddGameButton.Name" xml:space="preserve">
-    <value>AddGameButton</value>
-  </data>
-  <data name="WhilelistCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 199</value>
-  </data>
-  <data name="&gt;&gt;WhilelistCheckBox.Name" xml:space="preserve">
-    <value>WhilelistCheckBox</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="WhilelistCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <data name="&gt;&gt;SaveButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ClearButton.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;SaveButton.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="GetGamesButton.Text" xml:space="preserve">
-    <value> Get Games</value>
+  <data name="&gt;&gt;SaveButton.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;ClearButton.Name" xml:space="preserve">
-    <value>ClearButton</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ClearButton.Text" xml:space="preserve">
-    <value>Clear</value>
-  </data>
-  <data name="GamesComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 21</value>
-  </data>
-  <data name="&gt;&gt;GetGamesButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ClearButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="InfoLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 13</value>
-  </data>
-  <data name="SaveButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;AddGameButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="BlacklistRichTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="AddGameButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>226, 3</value>
+  <data name="ClearButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>307, 195</value>
   </data>
   <data name="ClearButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="GamesComboBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="ClearButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="ClearButton.Text" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="&gt;&gt;ClearButton.Name" xml:space="preserve">
+    <value>ClearButton</value>
+  </data>
+  <data name="&gt;&gt;ClearButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ClearButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ClearButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="BlacklistRichTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="BlacklistRichTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>377, 144</value>
+  </data>
+  <data name="BlacklistRichTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="BlacklistRichTextBox.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;BlacklistRichTextBox.Name" xml:space="preserve">
+    <value>BlacklistRichTextBox</value>
+  </data>
+  <data name="&gt;&gt;BlacklistRichTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BlacklistRichTextBox.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;BlacklistRichTextBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 30</value>
   </data>
-  <data name="&gt;&gt;SaveButton.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>379, 145</value>
   </data>
-  <data name="WhilelistCheckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="InfoLabel.Text" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;InfoLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;GamesComboBox.ZOrder" xml:space="preserve">
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="InfoLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="InfoLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 180</value>
+  </data>
+  <data name="InfoLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
   </data>
   <data name="InfoLabel.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="ClearButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>307, 195</value>
+  <data name="InfoLabel.Text" xml:space="preserve">
+    <value>label1</value>
   </data>
-  <data name="SaveButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="&gt;&gt;InfoLabel.Name" xml:space="preserve">
+    <value>InfoLabel</value>
   </data>
-  <data name="&gt;&gt;ClearButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;InfoLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;InfoLabel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;AddGameButton.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;InfoLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="VACButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 195</value>
+  </data>
+  <data name="VACButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="VACButton.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="VACButton.Text" xml:space="preserve">
+    <value>VAC Games</value>
+  </data>
+  <data name="&gt;&gt;VACButton.Name" xml:space="preserve">
+    <value>VACButton</value>
+  </data>
+  <data name="&gt;&gt;VACButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;VACButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;VACButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="progressBar1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>84, 208</value>
+  </data>
+  <data name="progressBar1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 10</value>
+  </data>
+  <data name="progressBar1.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Name" xml:space="preserve">
+    <value>progressBar1</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>385, 221</value>
+  </data>
+  <data name="&gt;&gt;backgroundWorker1.Name" xml:space="preserve">
+    <value>backgroundWorker1</value>
+  </data>
+  <data name="&gt;&gt;backgroundWorker1.Type" xml:space="preserve">
+    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>EditBlacklist</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

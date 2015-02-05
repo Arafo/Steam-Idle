@@ -189,4 +189,7 @@
   <data name="SuspendingGame" xml:space="preserve">
     <value>Suspending operation for </value>
   </data>
+  <data name="SearchGames" xml:space="preserve">
+    <value>Searching games: {0}% Completed</value>
+  </data>
 </root>

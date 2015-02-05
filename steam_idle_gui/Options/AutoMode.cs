@@ -26,6 +26,7 @@ namespace steam_idle_gui
             this.SoundCheckBox.Checked = steam_idle_gui.Properties.Settings.Default.SoundCheck;
             this.MinimizeCheckBox.Checked = steam_idle_gui.Properties.Settings.Default.MinimizeCheck;
             this.LogCheckBox.Checked = steam_idle_gui.Properties.Settings.Default.LogCheck;
+            this.WhilelistCheckBox.Checked = steam_idle_gui.Properties.Settings.Default.InvertBlacklist;
         }
 
         private void AutoMode_VisibleChanged(object sender, EventArgs e)
@@ -36,6 +37,7 @@ namespace steam_idle_gui
             steam_idle_gui.Properties.Settings.Default.SoundCheck = this.SoundCheckBox.Checked;
             steam_idle_gui.Properties.Settings.Default.MinimizeCheck = this.MinimizeCheckBox.Checked;
             steam_idle_gui.Properties.Settings.Default.LogCheck = this.LogCheckBox.Checked;
+            steam_idle_gui.Properties.Settings.Default.InvertBlacklist = this.WhilelistCheckBox.Checked;
             steam_idle_gui.Properties.Settings.Default.Save();
         }
 
@@ -69,6 +71,11 @@ namespace steam_idle_gui
             return LogCheckBox.Checked;
         }
 
+        public bool getInvertBlacklist()
+        {
+            return this.WhilelistCheckBox.Checked;
+        }
+
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
@@ -83,6 +90,7 @@ namespace steam_idle_gui
             steam_idle_gui.Properties.Settings.Default.SoundCheck = this.SoundCheckBox.Checked;
             steam_idle_gui.Properties.Settings.Default.MinimizeCheck = this.MinimizeCheckBox.Checked;
             steam_idle_gui.Properties.Settings.Default.LogCheck = this.LogCheckBox.Checked;
+            steam_idle_gui.Properties.Settings.Default.InvertBlacklist = this.WhilelistCheckBox.Checked;
             steam_idle_gui.Properties.Settings.Default.Save();
         }
     }

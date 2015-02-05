@@ -223,6 +223,15 @@ namespace steam_idle_gui.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Searching games: {0}% Completed.
+        /// </summary>
+        internal static string SearchGames {
+            get {
+                return ResourceManager.GetString("SearchGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a settings.txt file not found.
         /// </summary>
         internal static string SettingsNotFound {

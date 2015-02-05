@@ -39,6 +39,7 @@
             this.MinimizeCheckBox = new System.Windows.Forms.CheckBox();
             this.SoundCheckBox = new System.Windows.Forms.CheckBox();
             this.HideCheckBox = new System.Windows.Forms.CheckBox();
+            this.WhilelistCheckBox = new System.Windows.Forms.CheckBox();
             this.UpdateGroupBox.SuspendLayout();
             this.AutoModeGroupBox.SuspendLayout();
             this.GeneralGroupBox.SuspendLayout();
@@ -46,8 +47,8 @@
             // 
             // UpdateGroupBox
             // 
-            resources.ApplyResources(this.UpdateGroupBox, "UpdateGroupBox");
             this.UpdateGroupBox.Controls.Add(this.ValueCheckBox);
+            resources.ApplyResources(this.UpdateGroupBox, "UpdateGroupBox");
             this.UpdateGroupBox.Name = "UpdateGroupBox";
             this.UpdateGroupBox.TabStop = false;
             // 
@@ -59,9 +60,9 @@
             // 
             // AutoModeGroupBox
             // 
-            resources.ApplyResources(this.AutoModeGroupBox, "AutoModeGroupBox");
             this.AutoModeGroupBox.Controls.Add(this.OrderLabel);
             this.AutoModeGroupBox.Controls.Add(this.OrderBox);
+            resources.ApplyResources(this.AutoModeGroupBox, "AutoModeGroupBox");
             this.AutoModeGroupBox.Name = "AutoModeGroupBox";
             this.AutoModeGroupBox.TabStop = false;
             // 
@@ -72,8 +73,8 @@
             // 
             // OrderBox
             // 
-            resources.ApplyResources(this.OrderBox, "OrderBox");
             this.OrderBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.OrderBox, "OrderBox");
             this.OrderBox.Items.AddRange(new object[] {
             resources.GetString("OrderBox.Items"),
             resources.GetString("OrderBox.Items1"),
@@ -85,11 +86,12 @@
             // 
             // GeneralGroupBox
             // 
-            resources.ApplyResources(this.GeneralGroupBox, "GeneralGroupBox");
+            this.GeneralGroupBox.Controls.Add(this.WhilelistCheckBox);
             this.GeneralGroupBox.Controls.Add(this.LogCheckBox);
             this.GeneralGroupBox.Controls.Add(this.MinimizeCheckBox);
             this.GeneralGroupBox.Controls.Add(this.SoundCheckBox);
             this.GeneralGroupBox.Controls.Add(this.HideCheckBox);
+            resources.ApplyResources(this.GeneralGroupBox, "GeneralGroupBox");
             this.GeneralGroupBox.Name = "GeneralGroupBox";
             this.GeneralGroupBox.TabStop = false;
             // 
@@ -116,6 +118,12 @@
             resources.ApplyResources(this.HideCheckBox, "HideCheckBox");
             this.HideCheckBox.Name = "HideCheckBox";
             this.HideCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // WhilelistCheckBox
+            // 
+            resources.ApplyResources(this.WhilelistCheckBox, "WhilelistCheckBox");
+            this.WhilelistCheckBox.Name = "WhilelistCheckBox";
+            this.WhilelistCheckBox.UseVisualStyleBackColor = true;
             // 
             // AutoMode
             // 
@@ -149,5 +157,6 @@
         private System.Windows.Forms.CheckBox SoundCheckBox;
         private System.Windows.Forms.CheckBox HideCheckBox;
         private System.Windows.Forms.CheckBox LogCheckBox;
+        private System.Windows.Forms.CheckBox WhilelistCheckBox;
     }
 }

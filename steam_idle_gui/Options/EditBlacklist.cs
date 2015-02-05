@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using HtmlAgilityPack;
+using System.Text.RegularExpressions;
 
 namespace steam_idle_gui
 {
@@ -14,6 +17,7 @@ namespace steam_idle_gui
     {
         private List<Games> games;
         private Form1 mainForm = null;
+        private Dictionary<string, string> VACGames;
         public EditBlacklist(Form callingForm)
         {
             this.mainForm = callingForm as Form1;
@@ -51,7 +55,6 @@ namespace steam_idle_gui
 
         private void EditBlacklist_Load(object sender, EventArgs e)
         {
-            this.WhilelistCheckBox.Checked = steam_idle_gui.Properties.Settings.Default.InvertBlacklist;
             this.InfoLabel.Visible = false;
             this.games = this.mainForm.getListGames();
             if (this.games != null)
@@ -78,32 +81,9 @@ namespace steam_idle_gui
         {
         }
 
-        private void EditBlacklist_VisibleChanged(object sender, EventArgs e)
-        {
-            steam_idle_gui.Properties.Settings.Default.InvertBlacklist = this.WhilelistCheckBox.Checked;
-            steam_idle_gui.Properties.Settings.Default.Save();
-        }
-
         private void GetGamesButton_Click(object sender, EventArgs e)
         {
             this.mainForm.UpdateButtonWorker.RunWorkerAsync();
-        }
-
-        public bool getInvertBlacklist()
-        {
-            return this.WhilelistCheckBox.Checked;
-        }
-
-        protected override void OnCreateControl()
-        {
-            base.OnCreateControl();
-            base.ParentForm.FormClosing += new FormClosingEventHandler(this.ParentForm_FormClosing);
-        }
-
-        private void ParentForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            steam_idle_gui.Properties.Settings.Default.InvertBlacklist = this.WhilelistCheckBox.Checked;
-            steam_idle_gui.Properties.Settings.Default.Save();
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -123,5 +103,115 @@ namespace steam_idle_gui
             this.AddGameButton.Enabled = true;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            backgroundWorker1.RunWorkerAsync();
+            this.VACButton.Enabled = false;
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            int pagina = 1;
+            int maxPagina = 0;
+            String uri = "http://store.steampowered.com/search/?category1=998&category2=8&page=";
+            VACGames = new Dictionary<string, string>();
+
+            HtmlAgilityPack.HtmlDocument doc = htmlPage(uri + pagina);
+            try
+            {
+                HtmlNode pag = doc.DocumentNode.SelectSingleNode("//div[@class='search_pagination_left']");
+                string[] lines = Regex.Split(pag.InnerText, " ");
+                int gamesPerPag = Convert.ToInt32(lines[3]);
+                int totalGames = Convert.ToInt32(lines[5]);
+                maxPagina = (totalGames + gamesPerPag - 1) / gamesPerPag;
+
+                updateMaxProgressBar(totalGames);
+
+                for (pagina = 1; pagina <= maxPagina; pagina++)
+                {
+                    if (pagina != 1)
+                    {
+                        doc = htmlPage(uri + pagina);
+                    }
+                    // Obtener juegos con cromos y VAC
+                    getVACGames(doc, pagina, gamesPerPag);
+                }
+            }
+            catch (NullReferenceException) { }
+            e.Result = VACGames;
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Change the value of the ProgressBar to the BackgroundWorker progress.
+            progressBar1.Value = e.ProgressPercentage;
+            // Set the text.
+            //this.Text = e.ProgressPercentage.ToString();
+        }
+
+        private void getVACGames(HtmlAgilityPack.HtmlDocument doc, int pagina, int gamesPerPag)
+        {
+            int i = (pagina - 1)*gamesPerPag;
+            foreach (HtmlNode pag in doc.DocumentNode.SelectNodes("//div[@class='col search_capsule']"))
+            {
+                string[] stringSeparators = new string[] { "/", "Buy", "\" width=" };
+                string[] lines = pag.InnerHtml.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
+                String steamAppID = lines[4];
+                String steamAppTitle = lines[6];
+                try
+                {
+                    VACGames.Add(steamAppID, steamAppTitle);
+                    i += 1;
+                }
+                catch (ArgumentException) { }
+                backgroundWorker1.ReportProgress(i);
+            }
+        }
+
+        private HtmlAgilityPack.HtmlDocument htmlPage(String uri) 
+        {
+            String htmlCode = null;
+            using (WebClient client = new WebClient ())
+            {
+                 htmlCode = client.DownloadString(uri);        
+            }
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(htmlCode);
+            return doc;
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            int addedGames = 0;
+            Dictionary<string, string> n = (Dictionary<string, string>)e.Result;
+            foreach (KeyValuePair<string, string> entry in n) 
+            {
+                if (!this.BlacklistRichTextBox.Text.Contains(entry.Key))
+                {
+                    this.BlacklistRichTextBox.AppendText(entry.Key + " ||" + entry.Value + Environment.NewLine);
+                    addedGames++;
+                }
+            }
+            this.BlacklistRichTextBox.Text.TrimStart('\r', '\n');
+            this.InfoLabel.Visible = true;
+            // MOVER EL STRING A RESOURCES
+            if (addedGames == 1)
+            {
+                this.InfoLabel.Text = addedGames + " game added to blacklist";
+            }
+            else
+            {
+                this.InfoLabel.Text = addedGames + " games added to blacklist";
+            }
+            this.VACButton.Enabled = true;
+        }
+        private void updateMaxProgressBar(int max)
+        {
+
+            progressBar1.Invoke((MethodInvoker)delegate
+            {
+                progressBar1.Maximum = max;
+            });
+        }
     }
 }

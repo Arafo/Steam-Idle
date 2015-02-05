@@ -45,6 +45,8 @@ namespace steam_idle_gui
             t1.CountRow += CountRows;
             t1.UpdateRow += UpdateRows;
             t1.DeleteRow += DeleteRows;
+            t1.onProgressBarUpdate += UpdateButtonWorker_onProgressUpdate;
+            t1.updateMaxProgressBar += updateMaxProgressBar;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -138,7 +140,8 @@ namespace steam_idle_gui
             if (!UpdateButtonWorker.IsBusy)
             {
                 Console.WriteLine(steam_idle_gui.Resources.Resources.Finding);
-
+                UpdateButtonWorker_onProgressUpdate(0);
+                toolStripStatusLabel1.Text = string.Format(steam_idle_gui.Resources.Resources.SearchGames, 0);
                 UpdateButtonWorker.RunWorkerAsync();
             }
         }
@@ -165,6 +168,8 @@ namespace steam_idle_gui
             if (!AutoGamesWorker.IsBusy)
             {
                 Console.WriteLine(steam_idle_gui.Resources.Resources.AutoMode);
+                UpdateButtonWorker_onProgressUpdate(0);
+                toolStripStatusLabel1.Text = string.Format(steam_idle_gui.Resources.Resources.SearchGames, 0);
                 ComboBox Order = automode.getOrderBox();
                 bool getValue = Order.SelectedIndex == 3 || Order.SelectedIndex == 5;
                 bool getName = Order.SelectedIndex == 0 || Order.SelectedIndex == 1;
@@ -359,7 +364,7 @@ namespace steam_idle_gui
             checkSettings();
             if ((bool)arguments[0]) // Auto Mode
             {
-                List<Games> autoGames = t1.getGames((bool)arguments[1], (bool)arguments[2], "AUTO", blacklist.getInvertBlacklist());
+                List<Games> autoGames = t1.getGames((bool)arguments[1], (bool)arguments[2], "AUTO", automode.getInvertBlacklist());
                 autoGames = OrderOption(autoGames);
                 OnProgressUpdate(string.Format(steam_idle_gui.Resources.Resources.CountGamesAuto, autoGames.Count));
                 t1.DropsGames(autoGames, AutoModeWorker, info);
@@ -667,5 +672,32 @@ namespace steam_idle_gui
             return Cancel;
         }
 
+        private void UpdateButtonWorker_onProgressUpdate(int value)
+        {
+            base.Invoke((Action)delegate
+            {
+                if (toolStripProgressBar1.Maximum >= value)
+                    {
+                        toolStripProgressBar1.Value = value;
+                        toolStripStatusLabel1.Visible = true;
+                        double completado = Math.Ceiling(((double)value / (double)toolStripProgressBar1.Maximum) * 100);
+                        toolStripStatusLabel1.Text = string.Format(steam_idle_gui.Resources.Resources.SearchGames, completado);
+                    }
+            });
+        }
+
+        private void updateMaxProgressBar(int max, bool decrementarMax)
+        {
+
+            base.Invoke((MethodInvoker)delegate
+            {
+                if (decrementarMax)
+                {
+                    toolStripProgressBar1.Maximum -= 1;
+                } else {
+                    toolStripProgressBar1.Maximum = max;
+                }
+            });
+        }
     }
 }

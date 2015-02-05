@@ -35,6 +35,50 @@ namespace steam_idle_gui
         public event GameHeader setGameHeader;
         public delegate void playSound();
         public event playSound play;
+        public delegate void onProgressUpdate(int value);
+        public event onProgressUpdate onProgressBarUpdate;
+        public delegate void updateMaxProgress(int value, bool decrementarMax);
+        public event updateMaxProgress updateMaxProgressBar;
+
+        public List<Games> getGames(bool getName, bool getValue, string mode, bool invertBlacklist)
+        {
+            List<Games> games = new List<Games>(); // Lista de juegos que tienen cartas con su ID
+            int pagina = 1;
+            int maxPagina = 0;
+
+            // Obtener mayor numero de pagina
+            HtmlAgilityPack.HtmlDocument doc = getHtmlDoc("/badges/?p=" + pagina);
+            if (doc != null)
+            {
+                try
+                {
+                    foreach (HtmlNode pag in doc.DocumentNode.SelectNodes("//a[@class='pagelink']"))
+                    {
+                        int numero = Convert.ToInt32(pag.InnerText);
+                        if (numero > maxPagina)
+                        {
+                            maxPagina = numero;
+                        }
+                    }
+
+                    updateMaxProgressBar(maxPagina, false);
+                    for (pagina = 1; pagina <= maxPagina; pagina++)
+                    {
+                        if (pagina != 1)
+                        {
+                            doc = getHtmlDoc("/badges/?p=" + pagina);
+                        }
+                        games.AddRange(getGamesPagina(getName, getValue, mode, invertBlacklist, doc));
+                        onProgressBarUpdate(pagina);
+                    }
+                }
+                catch (NullReferenceException e)
+                {
+                    // Las cookies posiblemente han expirado
+                }
+            }
+            return games;
+        }
 
 
         // Devuelve una lista de 'Games' que contiene todos los juegos que 
@@ -43,14 +87,14 @@ namespace steam_idle_gui
         // nombres de los juegos, ademas de su ID y cartas pendientes
         // Si el parametro 'getName' es 'false' la lista solo contendra
         // la ID y el numero de cartas pendientes
-        public List<Games> getGames(bool getName, bool getValue, string mode, bool invertBlacklist)
+        public List<Games> getGamesPagina(bool getName, bool getValue, string mode, bool invertBlacklist, HtmlDocument documento)
         {
             int i = 0, y = 0;
             List<Games> games = new List<Games>(); // Lista de juegos que tienen cartas con su ID
             List<string> dropCount = new List<string>(); // Drops restantes
             char[] d = { '/' }; // Delimitador
 
-            HtmlAgilityPack.HtmlDocument doc = getHtmlDoc("/badges/");
+            HtmlAgilityPack.HtmlDocument doc = documento;
             //dropCount = dropCards(doc);
 
             // Drops restantes de cada juego extraido del codigo HTML
