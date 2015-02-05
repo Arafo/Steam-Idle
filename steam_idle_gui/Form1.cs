@@ -27,6 +27,9 @@ namespace steam_idle_gui
         private List<Games> games;
         EditBlacklist blacklist;
         AutoMode automode;
+        private int timeLeft = 0;
+        public static String currentAppId;
+        public static int currentDrops = 0;
 
         public Form1(String[] args)
         {
@@ -114,6 +117,9 @@ namespace steam_idle_gui
                         game.Add(new Games { Game = name.ToString(), ID = id.ToString(), Drops = drops.ToString() });
                         //DropsGames(game);
 
+                        // Iniciar timerIdle
+                        timerIdle.Enabled = true;
+
                         List<Object> arguments = new List<Object>();
                         arguments.Add(false);
                         arguments.Add(game);
@@ -156,6 +162,10 @@ namespace steam_idle_gui
                 AutoModeWorker.CancelAsync();
                 AutoGamesWorker.CancelAsync();
                 t1.idleClose(info.Arguments);
+                // Parar timerIdle y reiniciar la cuenta
+                timerIdle.Enabled = false;
+                timeLeft = 0;
+                toolStripStatusTimer.Text = "0:00";
                 //Steam.Shutdown();
                 StateLabel.ForeColor = Color.FromArgb(114, 181, 214);
                 StateLabel.Text = "Not In-Game";
@@ -167,6 +177,10 @@ namespace steam_idle_gui
         {
             if (!AutoGamesWorker.IsBusy)
             {
+
+                // Iniciar timerIdle
+                timerIdle.Enabled = true;
+
                 Console.WriteLine(steam_idle_gui.Resources.Resources.AutoMode);
                 UpdateButtonWorker_onProgressUpdate(0);
                 toolStripStatusLabel1.Text = string.Format(steam_idle_gui.Resources.Resources.SearchGames, 0);
@@ -672,6 +686,9 @@ namespace steam_idle_gui
             return Cancel;
         }
 
+        /////////////////////////////////////////////////////////////////
+        // STATUS STRIP
+        /////////////////////////////////////////////////////////////////
         private void UpdateButtonWorker_onProgressUpdate(int value)
         {
             base.Invoke((Action)delegate
@@ -698,6 +715,44 @@ namespace steam_idle_gui
                     toolStripProgressBar1.Maximum = max;
                 }
             });
+        }
+
+        /////////////////////////////////////////////////////////////////
+        // TIMER
+        /////////////////////////////////////////////////////////////////
+        private void timerIdle_Tick(object sender, EventArgs e)
+        {
+
+            if (timeLeft > 0)
+            {
+                timeLeft = timeLeft - 1;
+                int minutes = timeLeft / 60;
+                int seconds = timeLeft - (minutes * 60);
+                if (seconds < 10)
+                {
+                    toolStripStatusTimer.Text = minutes + ":0" + seconds;
+                }
+                else
+                {
+                    toolStripStatusTimer.Text = minutes + ":" + seconds;
+                }
+            }
+            else
+            {
+                //timerIdle.Enabled = false;
+                if (currentDrops != 0)
+                {
+                    if (currentDrops != 1)
+                    {
+                        timeLeft = 900;
+                    }
+                    else
+                    {
+                        timeLeft = 300;
+                    }
+                    timerIdle.Enabled = true;
+                }
+            }
         }
     }
 }

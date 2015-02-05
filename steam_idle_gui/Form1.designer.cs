@@ -55,14 +55,15 @@
             this.MinimizecheckBox = new System.Windows.Forms.CheckBox();
             this.OptionsButton = new System.Windows.Forms.Button();
             this.GameHeaderBox = new System.Windows.Forms.PictureBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusTimer = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStripSeparator = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.timerIdle = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GameHeaderBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -259,18 +260,28 @@
             this.GameHeaderBox.Name = "GameHeaderBox";
             this.GameHeaderBox.TabStop = false;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusTimer,
+            this.statusStripSeparator,
             this.toolStripStatusLabel1,
             this.toolStripProgressBar1});
             resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.SizingGrip = false;
+            // 
+            // toolStripStatusTimer
+            // 
+            this.toolStripStatusTimer.Name = "toolStripStatusTimer";
+            resources.ApplyResources(this.toolStripStatusTimer, "toolStripStatusTimer");
+            // 
+            // statusStripSeparator
+            // 
+            this.statusStripSeparator.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.statusStripSeparator.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusStripSeparator.Name = "statusStripSeparator";
+            resources.ApplyResources(this.statusStripSeparator, "statusStripSeparator");
             // 
             // toolStripStatusLabel1
             // 
@@ -281,6 +292,11 @@
             // 
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             resources.ApplyResources(this.toolStripProgressBar1, "toolStripProgressBar1");
+            // 
+            // timerIdle
+            // 
+            this.timerIdle.Interval = 1000;
+            this.timerIdle.Tick += new System.EventHandler(this.timerIdle_Tick);
             // 
             // Form1
             // 
@@ -306,7 +322,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GameHeaderBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -341,10 +356,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Drops;
         private System.Windows.Forms.DataGridViewTextBoxColumn Value;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusTimer;
+        private System.Windows.Forms.Timer timerIdle;
+        private System.Windows.Forms.ToolStripStatusLabel statusStripSeparator;
     }
 }
 

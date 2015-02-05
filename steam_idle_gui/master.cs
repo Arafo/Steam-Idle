@@ -518,7 +518,9 @@ namespace steam_idle_gui
                 while (stillHaveDrops)
                 {
                     try
-                    {      
+                    {
+                        Form1.currentAppId = g.ID;
+                        Form1.currentDrops = Convert.ToInt32(g.Drops);
                         WriteOnConsole(string.Format(steam_idle_gui.Resources.Resources.SleepingFor, (delay / 60)));
                         cancel = SleepFor(delay);
                         if (cancel)
