@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Threading;
+using System.Threading.Tasks;
 using steam_idle_gui;
 
 namespace steam_idle_gui
@@ -504,6 +505,8 @@ namespace steam_idle_gui
         {
             foreach (Games g in games)
             {
+                //Form1.currentAppId = g.ID;
+                Form1.currentDrops = Convert.ToInt32(g.Drops);
                 int delay = dropDelay(Convert.ToInt32(g.Drops));
                 bool stillHaveDrops = true;
                 int numCycles = 50;
@@ -519,10 +522,9 @@ namespace steam_idle_gui
                 {
                     try
                     {
-                        Form1.currentAppId = g.ID;
-                        Form1.currentDrops = Convert.ToInt32(g.Drops);
                         WriteOnConsole(string.Format(steam_idle_gui.Resources.Resources.SleepingFor, (delay / 60)));
                         cancel = SleepFor(delay);
+                        Form1.currentDrops = 0;
                         if (cancel)
                         {
                             WriteOnConsole(steam_idle_gui.Resources.Resources.ClosingGame + AppName);
@@ -533,6 +535,7 @@ namespace steam_idle_gui
                             stillHaveDrops = false;
                         WriteOnConsole(string.Format(steam_idle_gui.Resources.Resources.CheckingDrops, AppName));
                         int drops = getDropsAppID(g.ID);
+                        Form1.currentDrops = drops;
                         if (drops == 0)
                         {
                             stillHaveDrops = false;
@@ -565,10 +568,12 @@ namespace steam_idle_gui
                         }
                         else
                         {
+                            Form1.currentDrops = 0;
                             cancel = chillOut(g.ID);
                             maxFail += 1;
-                            if (cancel)
+                            if (cancel) 
                                 break;
+                            // FALTA PARAR TIMER Y PONER 0:00
                             setLabelText(steam_idle_gui.Resources.Resources.InGame + "\n" + AppName, Color.FromArgb(147, 181, 22));
                             AutoModeWorker.RunWorkerAsync(g.ID);
                         }

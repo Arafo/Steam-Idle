@@ -335,11 +335,15 @@
   <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="progressBar1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="progressBar1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 208</value>
+    <value>84, 195</value>
   </data>
   <data name="progressBar1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 10</value>
+    <value>75, 23</value>
   </data>
   <data name="progressBar1.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>

@@ -87,6 +87,7 @@
             this.notifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             resources.ApplyResources(this.notifyIcon, "notifyIcon");
             this.notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);
+            this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);
             // 
             // textBox1
             // 

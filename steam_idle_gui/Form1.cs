@@ -28,8 +28,8 @@ namespace steam_idle_gui
         EditBlacklist blacklist;
         AutoMode automode;
         private int timeLeft = 0;
-        public static String currentAppId;
-        public static int currentDrops = 0;
+        //public static String currentAppId;
+        public static int currentDrops;
 
         public Form1(String[] args)
         {
@@ -740,17 +740,17 @@ namespace steam_idle_gui
             else
             {
                 //timerIdle.Enabled = false;
-                if (currentDrops != 0)
+                switch (currentDrops)
                 {
-                    if (currentDrops != 1)
-                    {
-                        timeLeft = 900;
-                    }
-                    else
-                    {
+                    case 0:
+                        timeLeft = 0;
+                        break;
+                    case 1:
                         timeLeft = 300;
-                    }
-                    timerIdle.Enabled = true;
+                        break;
+                    default:
+                        timeLeft = 900;
+                        break;
                 }
             }
         }
